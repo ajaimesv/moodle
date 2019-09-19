@@ -3353,11 +3353,11 @@ function lti_request_is_using_ssl() {
 
 function lti_ensure_url_is_https($url) {
     if (!strstr($url, '://')) {
-        $url = 'https://' . $url;
+        $url = 'http://' . $url;
     } else {
-        // If the URL starts with http, replace with https.
-        if (stripos($url, 'http://') === 0) {
-            $url = 'https://' . substr($url, 7);
+        // If the URL starts with https, replace with http.
+        if (stripos($url, 'https://') === 0) {
+            $url = 'http://' . substr($url, 8);
         }
     }
 
